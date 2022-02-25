@@ -1,0 +1,27 @@
+﻿@model dt191gMom3Part2.Models.CDalbum
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Ta bort CD album</h2>
+
+<h3>Är du säker på att du vill ta bort CD albumet?</h3>
+<div>
+    <h4>CDalbum</h4>
+    <ul class="detaillist">
+        <li> @Model.CdName av @Model.Artist?.ArtistName<br>
+            <strong>Släpptes år  @Model.ReleaseYear</strong>
+        </li>
+    </ul>
+    <div class="edit">
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="AlbumId" />
+            <input type="submit" value="Delete" class="btn btn-danger" /> 
+        </form>
+    </div>
+    <div class="backto">
+         <a asp-action="Index" asp-route-id="@Model?.AlbumId">&lt; Till CD album</a>
+    </div>
+    
+</div>

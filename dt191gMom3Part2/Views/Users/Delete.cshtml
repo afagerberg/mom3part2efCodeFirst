@@ -1,0 +1,23 @@
+﻿@model dt191gMom3Part2.Models.User
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Ta bort användare</h2>
+
+<h3>Är du säker att du vill ta bort användaren?</h3>
+<div>
+    <h4>@Html.DisplayNameFor(model => model.Name) @Html.DisplayFor(model => model.Name)</h4>
+    
+    <div class="edit">
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="UserId" />
+            <input type="submit" value="Delete" class="btn btn-danger" />
+        </form>
+    </div>
+</div>
+
+<div class="backto">
+   @Html.ActionLink("< Tillbaka till användaren", "Index", "Users", new {id = Model?.UserId})
+</div>

@@ -1,0 +1,50 @@
+﻿@model dt191gMom3Part2.Models.Lending
+
+@{
+    ViewData["Title"] = "CD detaljer";
+
+}
+
+<h2>CD detaljer</h2>
+
+<h3>CDalbum</h3><a class="handle" asp-action="Edit" asp-route-id="@ViewBag.AlbumID">Edit</a><a class="handle" asp-action="Delete" asp-route-id="@ViewBag.AlbumID">Ta bort</a>
+<ul class="detaillist">
+    <li> @ViewBag.cdName av @ViewBag.Artist<br>
+        <strong>Släpptes år  @ViewBag.Year</strong></li>
+</ul>
+
+<div id="rent">
+
+
+    @if(ViewBag.lending != null)
+    {
+        <p class="rented">Utlånad till @ViewBag.User från den @ViewBag.lendingDate</p>
+
+    }else
+    {
+       
+        <p class="available">Finns att låna ut</p>
+
+          <form class="lendForm" asp-action="Index">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="hiddenInput">
+                    <input type="hidden" asp-for="AlbumId" class ="form-control" value="@ViewBag.AlbumID" />
+                </div>
+                
+                    <label for="UserId" class="control-label"></label>
+                    <select asp-for="UserId" class ="form-control" asp-items="ViewBag.UserId"></select>
+                
+                
+                    <input type="submit" value="Låna ut" class="btn btn-primary" />
+               
+            </form>      
+       
+    }
+
+    
+
+
+</div>
+<div class="backto">
+@Html.ActionLink("< Tillbaka till samling", "Index", "Home")
+</div>

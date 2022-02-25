@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - dt191gMom3Part2</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <!-- <link rel="stylesheet" href="~/dt191gMom3Part2.styles.css" asp-append-version="true" /> -->
+</head>
+<body>
+    <header>
+        <nav>
+        <a asp-area="" asp-controller="Home" asp-action="Index">
+        <div id="logo">
+             
+            <h1>CDS</h1>
+            <p>min CD Samling</p>
+            
+        </div>
+        </a>
+            <ul>
+                
+                <li><a asp-area="" asp-controller="Artist" asp-action="AddArtist">Lägg till Artist</a></li>
+                <li><a asp-area="" asp-controller="CDalbum" asp-action="AddCD">Lägg till CD album</a></li>
+                <li><a asp-area="" asp-controller="Lendings" asp-action="Index">CD lån</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+       
+          <p> 2022 - DT191G Moment 3 del 2 | Alice Fagerberg</p>
+        
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

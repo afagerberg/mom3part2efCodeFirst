@@ -1,0 +1,440 @@
+*{margin:0; padding:0; box-sizing:border-box;}
+
+body{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+
+a {
+   text-decoration:none;
+}
+
+ul{ list-style:none;}
+
+header {
+    position:sticky;
+    top:0;
+    background-color:rgb(255, 255, 255,0.9);
+    padding: 0 10px 10px 10px;
+    box-shadow: 0 3px 5px rgba(57, 63, 72, 0.2);
+}
+
+header nav{
+    max-width:960px;
+    margin:0 auto;
+}
+
+#logo{
+    margin:0 auto;
+    width:fit-content;
+    transition: all 0.3s
+}
+
+#logo:hover {
+    opacity:0.6;
+}
+
+h1{
+    font-size:3em;
+    color:rgb(233, 150, 0);
+}
+
+h2 {
+    color: rgb(233, 150, 0);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid rgb(235, 199, 149,0.4);
+    font-size: 2em;
+}
+
+h3{
+    display:inline-block;
+    margin-bottom:20px;
+    font-size:1.4em;
+    color:rgb(42, 42, 42);
+}
+
+header p {
+    font-size: 0.8em;
+    text-align: center;
+    margin-top: -10px;
+    margin-bottom: 6px;
+    color: rgb(233, 150, 0);
+}
+header ul {
+    display: flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:20px;
+    margin-bottom:4px;
+}
+
+header nav ul a {
+    display: block;
+    color: rgb(104, 104, 104);
+    padding:4px;
+    margin-bottom: -1px;
+    border: 2px solid rgb(239, 171, 47);
+    border-radius:8px;
+    transition: all 0.3s;
+}
+
+.container {
+    padding:50px 10px 0 10px;
+    margin:0 auto;
+}
+main {
+    max-width:960px;
+    margin: 0 auto;
+
+}
+
+main table {
+    width:100%;
+    border-collapse:collapse;
+    margin-bottom:50px;
+}
+
+.search {
+    max-width: 500px;
+    width:100%;
+    margin-bottom:15px;
+}
+
+.search form {
+    width:100%;
+    display:flex;
+    flex-direction:row;
+    border-radius: 100px;
+    box-shadow:  0 0.5px 2px 0 rgba(0, 0, 0, 0.4);
+}
+
+.search input[type=text]:hover {
+    background-color:rgb(231, 240, 255);
+}
+
+.search input[type=text]:focus{
+    background-color:rgb(231, 240, 255);
+}
+
+.search input[type=text]{
+  width:100%;
+  padding:10px;
+  border: none;
+  border-radius: 100px 0 0 100px;
+  background-color:transparent;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.search button {
+    background: transparent;
+    border: none;
+    border-radius: 0 100px 100px 0;
+    outline: none;
+    padding:5px 10px 5px 10px;
+    cursor:pointer;
+    opacity:0.55;
+    transition:all 0.3s;
+}
+
+.search button:hover {
+    opacity:1;
+}
+
+.search img{
+    width: 20px;
+    height: 20px;
+    margin-top:2px;
+}
+.tablecontainer {
+    overflow:auto;
+}
+
+table th, table td {
+    text-align:left;
+    padding:10px;
+}
+
+table td {
+    border-top: 1px solid rgb(225, 224, 223);
+}
+table a, .handle {
+    display:inline-block;
+    padding: 4px;
+    margin: 2px 5px 2px 5px;
+    box-shadow: 0 0px 3px 0 rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    color: rgb(88, 88, 88);
+    font-weight:500;
+    background-color: rgb(255, 255, 255);
+    transition:all 0.3s;
+}
+table a {
+    margin-bottom:6px;
+}
+table a:hover, .handle:hover{
+    color:black;
+    box-shadow: 0 0.5px 2px 0 rgba(0, 0, 0, 0.6);
+}
+
+
+
+.rented, .available {
+    font-size:0.9em;
+    font-weight:bold;
+    text-transform:uppercase;
+    
+}
+.rented{color:rgb(233, 175, 69);}
+.available{color:rgb(157, 191, 149);}
+.artlist{
+    margin-top:15px;
+}
+.artlist li {
+    padding: 10px;
+    margin-top: 15px;
+    border-radius: 5px;
+    box-shadow:  0 1.5px 4px 0 rgba(0, 0, 0, 0.3);
+}
+
+.goto {
+    display:inline-block;
+    height:30px;
+    width:30px;
+    border-radius:20px;
+    box-shadow:  0 0px 3px 0 rgba(0, 0, 0, 0.6);
+    transition: all 0.3s;
+}
+
+.goto a {
+    display:block;
+    text-align:center;
+    font-size:1.2em;
+    font-weight:bold;
+    color:rgb(163, 163, 163);
+    transition: all 0.3s;
+}
+.goto:hover {
+    box-shadow: 0 0px 3px 0 rgba(0, 0, 0, 1);
+}
+
+.goto:hover a {
+    
+    color:rgb(42, 42, 42);
+}
+
+.links {
+    display:inline-block;
+}
+.backto{margin-top:20px;}
+.backto a {
+    display:inline-block;
+    padding:10px;
+    box-shadow:  0 0px 3px 0 rgba(0, 0, 0, 0.4);
+    border-radius:6px;
+    color:grey;
+    font-size:0.9em;
+    transition:all 0.3s;
+}
+
+.backto a:hover {
+    color:black;
+    box-shadow:  0 0px 3px 0 rgba(0, 0, 0, 0.6);
+    
+}
+
+.artdetails li{
+
+    padding:10px;
+    border-bottom:1px solid rgb(196, 196, 196);
+}
+
+.detaillist {
+    margin-bottom:15px;
+}
+
+.detaillist li {
+    font-weight:bold;
+    font-size:1.05em;
+}
+.detaillist strong {
+    display:inline-block;
+    padding:3px 0 0 0;
+    margin-top:5px;
+    margin-bottom:5px;
+    color:rgb(155, 155, 155);
+    border-top:1px solid rgb(216, 216, 216);
+}
+.allusers {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgb(220, 220, 220);
+}
+.allusers ul{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.allusers ul li{
+    padding-left:7px;
+    border-radius:5px;
+    box-shadow: 0 0px 3px 0 rgba(0, 0, 0, 0.6);
+}
+.allusers ul li strong {
+    display: inline-block;
+    background-color: rgb(236, 236, 236);
+    padding: 4px 7px 6px 7px;
+    margin-left:4px;
+    transition:all 0.2s;
+}
+.allusers ul li strong:hover {
+    background-color:rgb(201, 221, 255);
+}
+.allusers ul li strong a{
+    color:rgb(78, 78, 78);
+    font-size:1.1em;
+    
+}
+
+#userLoans li {
+    width:fit-content;
+    padding: 10px;
+    box-shadow: 0 0px 3px 0 rgba(0, 0, 0, 0.6);
+}
+
+.adduser {
+    padding:5px;
+    
+}
+.adduser a {color: rgb(154, 154, 154);}
+.adduser a:hover {color: rgb(64, 64, 64);}
+
+.add form, .edit form {
+    max-width:500px;
+}
+
+    .add form input[type=text], .add form input[type=number], .edit form input[type=text], .edit form input[type=number] {
+        width: 100%;
+        padding: 4px 6px 4px 6px;
+        border: 0;
+        font-size: 1em;
+        box-shadow: 0 0px 3px 0 rgba(0, 0, 0, 0.6);
+        border-radius: 12px;
+        margin-top: 10px;
+        margin-bottom: 15px;
+    }
+
+.formMsg {
+    color: rgb(233, 175, 69);
+    font-weight:bold;
+}
+#rent {
+    margin-top:20px;
+}
+
+.lendForm {
+    max-width:500px;
+    margin: 10px 0 20px 0;
+    padding: 20px 10px 10px 10px;
+    border-top:2px solid rgb(229, 229, 229);
+}
+ select {
+    width:100%;
+    padding:4px;
+    border:0;
+    font-size:1em;
+    box-shadow: 0 0px 3px 0 rgba(0, 0, 0, 0.6);
+    border-radius:12px;
+    margin-bottom:15px;
+}
+
+
+input[type=submit] {
+    width:100%;
+    border: 4px solid rgb(239, 179, 97);
+    padding:5px;
+    font-size: 1em;
+    background-color: white;
+    border-radius: 8px;
+    color: rgb(239, 179, 97);
+    font-weight: bold;
+    cursor:pointer;
+    transition: all 0.3s;
+}
+input[type=submit]:hover {
+    border: 4px solid rgb(237, 138, 1);
+    color: rgb(237, 138, 1);
+}
+
+.deleteform {
+    margin-top:20px;
+    max-width:300px;
+    width:100%;
+}
+
+.footer {
+    max-width:980px;
+    margin:0 auto;
+    padding:100px 10px 10px 10px;
+}
+
+@media screen and (min-width:560px){
+    header nav {
+        display: flex;
+        justify-content: left;
+    }
+
+    #logo {
+        margin-left:0;
+        width: fit-content;
+        margin-right: 50px;
+        transition: all 0.3s
+    }
+
+    h1 {
+        font-size: 3.5em;
+    }
+
+    header p {
+        font-size: 0.9em;
+        text-align: center;
+        margin-top: -10px;
+        margin-bottom: 6px;
+        color: rgb(233, 150, 0);
+    }
+    header nav ul {
+        margin-bottom: 6.55px;
+        border-bottom: 1px solid rgb(207, 207, 207);
+    }
+    header nav ul a {
+        display:block;
+        color:rgb(0, 0, 0);
+        padding:58px 0 4px 0;
+        margin-bottom:-1px;
+        border:0;
+        border-radius:0;
+        transition:all 0.3s;
+    }
+    header nav ul a:hover {
+        padding:52.5px 0 8px 0;
+        border-bottom:1.5px solid rgb(237, 138, 1);
+        color: rgb(237, 138, 1);
+
+    }
+
+    header ul {
+        display: flex;
+        justify-content: left;
+        gap:20px;
+        margin-bottom: 6.55px;
+        border-bottom: 1px solid rgb(207, 207, 207);
+    }
+
+    table a {
+        margin-bottom: 2px;
+    }
+
+}

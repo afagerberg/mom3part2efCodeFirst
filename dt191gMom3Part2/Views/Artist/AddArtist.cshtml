@@ -1,0 +1,33 @@
+﻿@model dt191gMom3Part2.Models.Artist
+
+@{
+    ViewData["Title"] = "Lägg till Artist";
+}
+
+<h2>Lägg till</h2>
+
+<h3>Artist</h3>
+<hr />
+<div class="row">
+    <div class="add">
+        <form asp-action="AddArtist">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ArtistName" class="control-label"></label>
+                <input asp-for="ArtistName" class="form-control" />
+                <span asp-validation-for="ArtistName" class="formMsg"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Lägg till artist" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="backto">
+   @Html.ActionLink("< Tillbaka till samling", "Index", "Home")
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

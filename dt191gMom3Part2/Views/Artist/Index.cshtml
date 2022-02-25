@@ -1,0 +1,39 @@
+﻿@model dt191gMom3Part2.Models.Artist
+
+@{
+    ViewData["Title"] = @Html.DisplayFor(model => model.ArtistName);
+}
+
+<h2>Artistdetaljer</h2>
+<h3>@Html.DisplayFor(model => model.ArtistName)</h3>
+<div class="links">
+<a class="handle" asp-action="Edit" asp-route-id="@Model?.ArtistId">Edit</a> |
+<a class="handle" asp-action="Delete" asp-route-id="@Model?.ArtistId">Ta bort</a>
+</div>
+<h4>CD album</h4>
+<ul class="artdetails"> 
+    @if (Model?.CDalbums != null)
+    {
+        @foreach (var item in Model.CDalbums)
+        {
+            <li>@item.CdName - Släpptes år @item.ReleaseYear</li>
+        }
+
+    }
+    @if(Model?.CDalbums?.Count < 1)
+    {
+          <li>Inga CD album i samlingen</li> 
+     }
+
+</ul>
+
+
+<div class="backto">
+@Html.ActionLink("< Tillbaka till samling", "Index", "Home")
+</div>
+
+
+
+
+
+    

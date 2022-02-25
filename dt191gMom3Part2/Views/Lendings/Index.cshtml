@@ -1,0 +1,61 @@
+﻿@model IEnumerable<dt191gMom3Part2.Models.Lending>
+
+@{
+    ViewData["Title"] = "CD lån";
+     IEnumerable<dt191gMom3Part2.Models.User> users = (IEnumerable<dt191gMom3Part2.Models.User>)ViewBag.Users;
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div class="allusers">
+    <h3>Alla användare</h3>
+    <ul>
+        @foreach(User user in users)
+        {
+            <li>@user.Name<strong> @Html.ActionLink(" > ", "Index", "Users", new {id = user.UserId})</strong></li>
+        }
+    <li class="adduser">@Html.ActionLink("Lägg till +", "AddUser", "Users")</li>
+    </ul>
+</div>
+<h3>Alla CD lån</h3>
+<div class="tablecontainer">
+    <table class="table">
+        <thead>
+            <tr>
+                 <th>
+                    Lånetagare
+                </th>
+                <th>
+                    CD album
+                </th>
+                <th>
+                    Lånedatum
+                </th>
+            
+           
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+
+    @foreach (var item in Model) {
+        @if(item.CDalbum != null && item.User != null){
+            <tr>
+                <td>
+                   @item.User.Name 
+                </td>
+                <td>
+                    @item.CDalbum.CdName
+                </td>
+                <td>
+                    @item.LendingDate.ToString("d MMMM yyyy")
+                </td>
+                <td>
+                    <a asp-action="Delete" asp-route-id="@item.LendingId">Återlämna</a>
+                </td>
+            </tr>
+        }
+    }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,21 @@
+﻿@model dt191gMom3Part2.Models.Artist
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Ta bort artist</h2>
+
+<h3>Är du säker på att du vill radera artisten? Alla Cd album som artisten har gjort kommer även att försvinna från din samling.</h3>
+<div>
+    <h4>@Html.DisplayFor(model => model.ArtistName)</h4>
+    <div class="edit">
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="ArtistId" />
+            <input type="submit" value="Delete" class="btn btn-danger" />
+        </form>
+    </div>
+    <div class="backto">
+     <a asp-action="Index" asp-route-id="@Model?.ArtistId">&lt; Till artisten</a>
+    </div>
+</div>

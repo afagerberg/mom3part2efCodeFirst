@@ -1,0 +1,40 @@
+﻿@model dt191gMom3Part2.Models.User
+
+@{
+    ViewData["Title"] = $"Detaljer användare - {Html.DisplayFor(model => model.Name)}";
+
+     IEnumerable<dt191gMom3Part2.Models.CDalbum> cds = (IEnumerable<dt191gMom3Part2.Models.CDalbum>)ViewBag.CDs;
+}
+
+<h2>Detaljer användare</h2>
+
+<h3>@Html.DisplayFor(model => model.Name)</h3>
+
+
+    <a class="handle" asp-action="Edit" asp-route-id="@Model?.UserId">Edit</a> 
+    <a class="handle" asp-action="Delete" asp-route-id="@Model?.UserId">Ta bort användaren</a> 
+
+@if(Model?.Loans?.Count < 1)
+{
+    <p class="available">Användaren har inte lånat någon CD</p>
+}
+
+else if(Model?.Loans != null)
+{
+
+    <ul class="detaillist" id="userLoans">
+
+    @foreach(var lending in Model.Loans)
+    {
+       <li>Lån: Album @foreach(CDalbum cd in cds)
+            {@if( cd.AlbumId == lending.AlbumId){@cd.CdName}}
+            <br> <strong>Från den @lending.LendingDate.ToString("d MMMM yyyy")</strong><br><a class="handle" asp-controller="Lendings" asp-action="Delete" asp-route-id="@lending.LendingId">Återlämna</a></li>
+    }
+        
+    </ul>
+}
+
+
+<div class="backto">
+   @Html.ActionLink("< Tillbaka till CD lån", "Index", "Lendings")
+</div>

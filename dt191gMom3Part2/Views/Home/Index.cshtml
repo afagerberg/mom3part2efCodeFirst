@@ -1,0 +1,90 @@
+﻿@model IEnumerable<dt191gMom3Part2.Models.CDalbum>
+
+@{
+    ViewData["Title"] = "CD samling";
+}
+
+<h2>Min CD Samling</h2>
+
+<div class="search"> 
+    <form asp-controller="Home" asp-action="Index" method="get">      
+       <input type="text" placeholder="Sök på CD..." name="SearchString" />
+       <button type="submit">
+          <img src="images/search.png">
+       </button>
+    </form>
+</div>
+<div class="tablecontainer">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    CD Album
+                </th>
+                <th>
+                    Artist 
+                </th>
+                <th>
+                    År släpptes
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model) {
+            @if(item.Artist != null){
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CdName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Artist.ArtistName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ReleaseYear)
+                    </td>
+                    <td>
+    
+                        @if(item.Lending != null)
+                        {
+                               <div class="rented">UTLÅNAD</div>
+                       
+                        }else 
+                        {
+                            <div class="available">FINNS ATT LÅNA</div>
+                        }
+                                
+
+                    </td>
+                    <td class="tablelinks">
+                       
+                        @Html.ActionLink("Edit", "Edit", "CDalbum", new {id = item.AlbumId})
+                        @Html.ActionLink("Detaljer", "Index", "CDalbum", new {id = item.AlbumId})
+                        @Html.ActionLink("Ta bort", "Delete", "CDalbum", new {id = item.AlbumId})
+                    </td>
+                </tr>
+          }
+        }
+        </tbody>
+    </table>
+</div>
+@{
+    IEnumerable<dt191gMom3Part2.Models.Artist> allArtists = (IEnumerable<dt191gMom3Part2.Models.Artist>)ViewBag.AllArtists;
+}
+
+<h3>Alla artister i min samling</h3>
+<ul class="artlist">
+@foreach(Artist artist in allArtists)
+{
+    @if(artist.CDalbums == null)
+    {
+        var count = "Inga album i samlingen";
+        <li><strong>@artist.ArtistName</strong> - @count <div class="goto">@Html.ActionLink(">", "Index", "Artist", new {id = artist.ArtistId})</div> </li>
+    }else
+    {
+        var count = $"{@artist.CDalbums.Count} album i samlingen";
+        <li><strong>@artist.ArtistName</strong> - @count <div class="goto">@Html.ActionLink(">", "Index", "Artist", new {id = artist.ArtistId})</div></li>
+    }
+    
+}
+</ul>

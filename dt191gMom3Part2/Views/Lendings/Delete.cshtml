@@ -1,0 +1,31 @@
+﻿@model dt191gMom3Part2.Models.Lending
+
+@{
+    ViewData["Title"] = "Återlämna";
+}
+
+<h2>Återlämning</h2>
+
+<h3>Är du säker på att CDn ska lämnas tillbaka?</h3>
+<div>
+
+    <ul class="detaillist">
+
+   
+
+           <li>Lånetagare: @Model?.User?.Name <br /> Album: @Model?.CDalbum?.CdName <br> 
+           <strong>Från den @Model?.LendingDate.ToString("d MMMM yyyy")</strong></li>
+    
+        
+    </ul>
+
+    <div class="edit">
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="LendingId" />
+            <input type="submit" value="Ja lämna tillbaka" class="btn btn-danger" />
+        </form>
+    </div>
+    <div class="backto">
+     <a asp-action="Index">&lt; Tillbaka till CD lån</a>
+    </div>
+</div>

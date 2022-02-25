@@ -1,0 +1,42 @@
+﻿@model dt191gMom3Part2.Models.CDalbum
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit CDalbum</h2>
+
+<div class="row">
+    <div class="edit">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="AlbumId" />
+            <div class="form-group">
+                <label asp-for="CdName" class="control-label"></label><br>
+                <span asp-validation-for="CdName" class="formMsg"></span>
+                <input asp-for="CdName" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="ReleaseYear" class="control-label"></label><br>
+                <span asp-validation-for="ReleaseYear" class="formMsg"></span>
+                <input asp-for="ReleaseYear" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="ArtistId" class="control-label"></label>
+                <select asp-for="ArtistId" class="form-control" asp-items="ViewBag.ArtistId"></select>
+                <span asp-validation-for="ArtistId" class="formMsg"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Spara ändringar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="backto">
+     <a asp-action="Index" asp-route-id="@Model?.AlbumId">&lt; Till CD albumet</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
